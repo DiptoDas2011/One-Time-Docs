@@ -1,0 +1,472 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: #eeeeee;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+
+
+    padding: 10px 14px;
+}
+
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+
+    overflow-x: auto;
+    padding-bottom: 3px;
+}
+
+
+.toolbar button,
+.toolbar select {
+    height: 34px;
+
+
+    border: 1px solid #d5d5d5;
+    background: #fafafa;
+
+
+    border-radius: 5px;
+
+
+    padding: 0 9px;
+
+
+    font-size: 14px;
+
+
+    cursor: pointer;
+}
+
+
+.toolbar button:hover {
+    background: #eaeaea;
+}
+
+
+.toolbar select {
+    cursor: pointer;
+}
+
+
+.separator {
+    width: 1px;
+    height: 25px;
+    background: #ddd;
+
+
+    margin: 0 3px;
+}
+
+
+.downloadBtn {
+    background: #222 !important;
+    color: white;
+    border-color: #222 !important;
+}
+
+
+.downloadBtn:hover {
+    background: #444 !important;
+}
+
+
+.word {
+    background: #365fc9 !important;
+    border-color: #365fc9 !important;
+}
+
+
+
+
+/* =========================
+   WORKSPACE
+========================= */
+
+
+.workspace {
+    min-height: calc(100vh - 125px);
+
+
+    padding: 35px 20px;
+
+
+    overflow: auto;
+}
+
+
+.document-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* =========================
+   DOCUMENT
+========================= */
+
+
+.document {
+    width: 210mm;
+    min-height: 297mm;
+
+
+    background: white;
+
+
+    padding: 25mm;
+
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.12);
+
+
+    outline: none;
+
+
+    line-height: 1.6;
+
+
+    font-size: 14px;
+
+
+    overflow-wrap: break-word;
+}
+
+
+.document h1 {
+    font-size: 30px;
+}
+
+
+.document h2 {
+    font-size: 24px;
+}
+
+
+.document h3 {
+    font-size: 20px;
+}
+
+
+.document p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+
+.document ul,
+.document ol {
+    padding-left: 30px;
+}
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+    text-align: center;
+
+
+    background: #ffffff;
+
+
+    border-top: 1px solid #ddd;
+
+
+    padding: 12px;
+
+
+    font-size: 13px;
+
+
+    color: #666;
+}
+
+
+
+
+/* =========================
+   MODAL
+========================= */
+
+
+.modal {
+    display: none;
+
+
+    position: fixed;
+
+
+    inset: 0;
+
+
+    z-index: 200;
+
+
+    background: rgba(0, 0, 0, 0.4);
+
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modalBox {
+    width: 340px;
+
+
+    background: white;
+
+
+    border-radius: 10px;
+
+
+    padding: 20px;
+
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.modalHeader {
+    display: flex;
+
+
+    align-items: center;
+    justify-content: space-between;
+
+
+    margin-bottom: 20px;
+}
+
+
+.modalHeader h2 {
+    margin: 0;
+
+
+    font-size: 20px;
+}
+
+
+.modalHeader button {
+    border: 0;
+    background: transparent;
+
+
+    font-size: 25px;
+
+
+    cursor: pointer;
+}
+
+
+.modalBox label {
+    display: block;
+
+
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.modalBox select {
+    width: 100%;
+
+
+    height: 38px;
+
+
+    border: 1px solid #ccc;
+
+
+    border-radius: 5px;
+
+
+    padding: 0 10px;
+}
+
+
+.modalBox input {
+    width: 100%;
+}
+
+
+.orientation {
+    display: flex;
+
+
+    gap: 8px;
+}
+
+
+.orientation button {
+    flex: 1;
+
+
+    height: 38px;
+
+
+    border: 1px solid #ccc;
+
+
+    background: #f7f7f7;
+
+
+    border-radius: 5px;
+
+
+    cursor: pointer;
+}
+
+
+.closeSettings {
+    width: 100%;
+
+
+    height: 40px;
+
+
+    margin-top: 20px;
+
+
+    border: 0;
+
+
+    border-radius: 5px;
+
+
+    background: #222;
+
+
+    color: white;
+
+
+    cursor: pointer;
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media (max-width: 700px) {
+
+
+    .topbar {
+        padding: 8px;
+    }
+
+
+    .brand {
+        font-size: 18px;
+    }
+
+
+    .workspace {
+        padding: 15px 0;
+    }
+
+
+    .document {
+        width: 100%;
+
+
+        min-height: calc(100vh - 170px);
+
+
+        padding: 18mm 12mm;
+
+
+        box-shadow: none;
+    }
+
+
+    .document-wrapper {
+        display: block;
+    }
+
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+
+
+
+/* =========================
+   PRINT
+========================= */
+
+
+@media print {
+
+
+    body {
+        background: white;
+    }
+
+
+    .topbar,
+    footer {
+        display: none;
+    }
+
+
+    .workspace {
+        padding: 0;
+    }
+
+
+    .document {
+        box-shadow: none;
+        margin: 0;
+    }
+}
