@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>One Time Docs</title>
+
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+    <!-- Word -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.3.1/html-docx.js"></script>
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+
+    <div class="brand">
+        <span>One Time Docs</span>
+    </div>
+
+
+    <div class="toolbar">
+
+
+        <button onclick="undo()" title="Undo">↶</button>
+        <button onclick="redo()" title="Redo">↷</button>
+
+
+        <span class="separator"></span>
+
+
+        <select id="fontFamily" onchange="format('fontName', this.value)">
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+
+
+        <button onclick="addFont()" title="Add Font">＋ Font</button>
+
+
+        <select id="fontSize" onchange="changeFontSize(this.value)">
+            <option value="2">12</option>
+            <option value="3" selected>14</option>
+            <option value="4">16</option>
+            <option value="5">18</option>
+            <option value="6">24</option>
+            <option value="7">32</option>
+        </select>
+
+
+        <span class="separator"></span>
+
+
+        <button onclick="format('bold')" title="Bold">
+            <b>B</b>
+        </button>
+
+
+        <button onclick="format('italic')" title="Italic">
+            <i>I</i>
+        </button>
+
+
+        <button onclick="format('underline')" title="Underline">
+            <u>U</u>
+        </button>
+
+
+        <button onclick="format('strikeThrough')" title="Strike">
+            <s>S</s>
+        </button>
+
+
+        <span class="separator"></span>
+
+
+        <button onclick="format('justifyLeft')" title="Align Left">≡</button>
+        <button onclick="format('justifyCenter')" title="Center">☰</button>
+        <button onclick="format('justifyRight')" title="Align Right">≡</button>
+        <button onclick="format('justifyFull')" title="Justify">▤</button>
+
+
+        <span class="separator"></span>
+
+
+        <button onclick="format('insertUnorderedList')" title="Bullet List">
+            • List
+        </button>
+
+
+        <button onclick="format('insertOrderedList')" title="Number List">
+            1. List
+        </button>
+
+
+        <select onchange="applyHeading(this.value)">
+            <option value="">Paragraph</option>
+            <option value="H1">Heading 1</option>
+            <option value="H2">Heading 2</option>
+            <option value="H3">Heading 3</option>
+            <option value="H4">Heading 4</option>
+        </select>
+
+
+        <span class="separator"></span>
+
+
+        <button onclick="openSettings()" title="Page Settings">
+            ⚙ Page
+        </button>
+
+
+        <button class="downloadBtn" onclick="downloadPDF()">
+            PDF
+        </button>
+
+
+        <button class="downloadBtn word" onclick="downloadWord()">
+            Word
+        </button>
+
+
+    </div>
+
+
+</header>
+
+
+
+
+<main class="workspace">
+
+
+    <div class="document-wrapper">
+
+
+        <div
+            id="document"
+            class="document"
+            contenteditable="true"
+            spellcheck="true"
+        >
+            <h1>Untitled Document</h1>
+            <p>Start writing here...</p>
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+
+<footer>
+    Made By <strong>"Dipto Das"</strong>
+</footer>
+
+
+
+
+<!-- PAGE SETTINGS -->
+
+
+<div id="settingsModal" class="modal">
+
+
+    <div class="modalBox">
+
+
+        <div class="modalHeader">
+            <h2>Page Settings</h2>
+            <button onclick="closeSettings()">×</button>
+        </div>
+
+
+        <label>Page Size</label>
+
+
+        <select id="pageSize" onchange="changePageSize()">
+            <option value="A4">A4</option>
+            <option value="A5">A5</option>
+            <option value="Letter">Letter</option>
+            <option value="Legal">Legal</option>
+        </select>
+
+
+
+
+        <label>Orientation</label>
+
+
+        <div class="orientation">
+            <button onclick="setOrientation('portrait')">
+                Portrait
+            </button>
+
+
+            <button onclick="setOrientation('landscape')">
+                Landscape
+            </button>
+        </div>
+
+
+
+
+        <label>Margin</label>
+
+
+        <input
+            type="range"
+            id="margin"
+            min="10"
+            max="60"
+            value="25"
+            onchange="changeMargin()"
+        >
+
+
+        <p id="marginValue">25 mm</p>
+
+
+
+
+        <button
+            class="closeSettings"
+            onclick="closeSettings()"
+        >
+            Done
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- FONT FILE INPUT -->
+
+
+<input
+    type="file"
+    id="fontInput"
+    accept=".ttf,.otf,.woff,.woff2"
+    hidden
+>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
